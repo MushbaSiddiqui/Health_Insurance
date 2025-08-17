@@ -86,7 +86,7 @@ const useFx = () => {
       };
 };
 
-export default function IndemnityRightCompareVivid({ imgSrc = "/images/imdemnity-plan.jpg" }) {
+export default function IndemnityRightCompareVivid({ imgSrc = "git add .images/imdemnity-plan.jpg" }) {
   const fx = useFx();
 
   return (
