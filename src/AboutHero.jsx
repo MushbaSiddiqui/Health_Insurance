@@ -44,14 +44,14 @@ export default function AboutHero({
         }}
       />
 
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:py-28">
         {/* Eyebrow / breadcrumbs */}
         <motion.nav
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           aria-label="Breadcrumb"
-          className="mb-6 text-sm text-white/70"
+          className="mb-4 sm:mb-6 text-sm text-white/70"
         >
           <ol className="flex items-center gap-2">
             <li>
@@ -64,7 +64,7 @@ export default function AboutHero({
           </ol>
         </motion.nav>
 
-        <div className="grid items-center gap-10 lg:grid-cols-12">
+        <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-12">
           {/* Left: copy */}
           <div className="lg:col-span-7">
             <motion.div
@@ -81,7 +81,7 @@ export default function AboutHero({
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.12 }}
-              className="mt-4 text-4xl font-extrabold leading-[1.05] text-white sm:text-5xl lg:text-6xl"
+              className="mt-4 text-3xl sm:text-4xl font-extrabold leading-[1.05] text-white sm:text-5xl lg:text-6xl"
             >
               Better Health Coverage, Built Around People
             </motion.h1>
@@ -90,9 +90,9 @@ export default function AboutHero({
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-5 max-w-2xl text-lg leading-relaxed text-white/90"
+              className="mt-4 sm:mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-white/90"
             >
-              We’re a team of clinicians, benefits specialists, and product
+              We're a team of clinicians, benefits specialists, and product
               builders focused on making healthcare simple. From $0-copay
               virtual care to transparent fixed indemnity benefits, our mission
               is to help families and employers save money without sacrificing

@@ -110,31 +110,31 @@ export default function EmployerHero() {
               id="employer-hero-title"
               data-qa="hero-title"
               variants={item}
-              className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+              className="text-3xl sm:text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
             >
-              “Free Health Benefits That Boost Your Bottom Line.”
+              "Free Health Benefits That Boost Your Bottom Line."
             </motion.h1>
 
             <motion.p
               data-qa="hero-subtitle"
               variants={item}
-              className="mt-6 text-lg leading-relaxed text-sky-100/90 max-w-2xl"
+              className="mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed text-sky-100/90 max-w-2xl"
             >
               Deliver 24/7 virtual healthcare, mental health support and more – while lowering payroll taxes.
             </motion.p>
 
-            <motion.div variants={item} className="mt-6 flex flex-wrap gap-2">
+            <motion.div variants={item} className="mt-4 sm:mt-6 flex flex-wrap gap-2">
               <Badge>Section 125–compliant</Badge>
               <Badge>Unlimited telehealth</Badge>
               <Badge>$0 net cost potential</Badge>
             </motion.div>
 
             {/* CTAs (React Router links) */}
-            <nav className="mt-8 flex flex-col items-start gap-3 sm:flex-row" aria-label="Primary calls to action">
+            <nav className="mt-6 sm:mt-8 flex flex-col items-start gap-3 sm:flex-row" aria-label="Primary calls to action">
               <motion.div variants={item}>
                 <Link
                   to="/employers/how-it-works"
-                  className="inline-flex items-center justify-center rounded-full bg-indigo-500/95 px-6 py-3 text-base font-semibold text-white shadow-md transition hover:bg-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-900"
+                  className="inline-flex items-center justify-center rounded-full bg-indigo-500/95 px-5 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-md transition hover:bg-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-900"
                 >
                   See How It Works
                 </Link>
@@ -143,7 +143,7 @@ export default function EmployerHero() {
               <motion.div variants={item}>
                 <Link
                   to="/employers/quiz"
-                  className="inline-flex items-center justify-center rounded-full border-2 border-teal-300/90 bg-white/10 px-6 py-3 text-base font-semibold text-teal-100 hover:bg-white/20 hover:text-teal-50 transition backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-200/80 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-900"
+                  className="inline-flex items-center justify-center rounded-full border-2 border-teal-300/90 bg-white/10 px-5 sm:px-6 py-3 text-sm sm:text-base font-semibold text-teal-100 hover:bg-white/20 hover:text-teal-50 transition backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-200/80 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-900"
                 >
                   Take the 5-Minute Qualification Quiz
                 </Link>
@@ -154,7 +154,7 @@ export default function EmployerHero() {
               Not insurance advice. For educational purposes only.
             </motion.p>
 
-            <motion.div variants={item} className="mt-10">
+            <motion.div variants={item} className="mt-8 sm:mt-10">
               <p className="text-sm font-medium text-sky-100/90">Trusted by employers nationwide</p>
               <div className="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-5">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -167,10 +167,10 @@ export default function EmployerHero() {
           {/* RIGHT: Accent card over the tinted image */}
           <motion.aside
             variants={item}
-            className="ml-auto w-full max-w-md rounded-3xl bg-white/85 p-6 shadow-xl backdrop-blur-md"
+            className="ml-auto w-full max-w-md rounded-2xl sm:rounded-3xl bg-white/85 p-4 sm:p-6 shadow-xl backdrop-blur-md"
           >
-            <h3 className="text-lg font-semibold text-slate-900">What you get</h3>
-            <ul className="mt-4 space-y-2 text-slate-700">
+            <h3 className="text-base sm:text-lg font-semibold text-slate-900">What you get</h3>
+            <ul className="mt-3 sm:mt-4 space-y-2 text-sm sm:text-base text-slate-700">
               <li className="flex items-start gap-2">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-500" />
                 Unlimited virtual primary care + mental health
@@ -185,7 +185,7 @@ export default function EmployerHero() {
               </li>
             </ul>
 
-            <div className="mt-6 flex gap-3">
+            <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-2 sm:gap-3">
               <Link
                 to="/employers/how-it-works"
                 className="inline-flex items-center justify-center rounded-full bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"

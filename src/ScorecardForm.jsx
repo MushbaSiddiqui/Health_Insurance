@@ -156,144 +156,76 @@ export default function ScorecardForm() {
 
   // ----- UI -----
   return (
-    <section
-      aria-labelledby="scorecard-title"
-      className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-16 sm:py-20"
-    >
-      {/* background accents */}
-      <div className="pointer-events-none absolute -top-40 -right-40 h-80 w-80 rounded-full bg-gradient-to-br from-blue-100 to-indigo-200 opacity-25 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-gradient-to-tr from-teal-100 to-blue-200 opacity-25 blur-3xl" />
-
-      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6">
-        {/* header */}
-        <div className="mx-auto mb-10 max-w-[900px] text-center md:mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-5 inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-md"
-          >
-            <svg className="mr-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-            Professional Assessment Tool
-          </motion.div>
-
-          <motion.h1
-            id="scorecard-title"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.05 }}
-            className="text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl lg:text-5xl"
-          >
-            <span className="bg-gradient-to-r from-blue-700 via-indigo-700 to-teal-700 bg-clip-text text-transparent">
-              2025 Business Health & Tax Savings
-            </span>
-            <br />
-            <span className="text-slate-800">Scorecard</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.1 }}
-            className="mx-auto mt-5 max-w-[880px] text-base leading-relaxed text-slate-700 sm:text-lg"
-          >
-            Is your business structured to maximize the hidden tax savings available for employee health benefits? Complete
-            this 5-minute assessment to discover your potential and see if you qualify for a
-            <span className="font-semibold text-blue-700"> no-cost virtual health program</span> that can boost employee
-            retention and your bottom line.
-          </motion.p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 lg:py-16">
+        {/* Header */}
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
+            Employer Benefits Scorecard
+          </h1>
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+            Get a personalized assessment of how our health benefits can help your business save money and improve employee satisfaction.
+          </p>
         </div>
 
-        {/* progress */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, delay: 0.15 }}
-          className="mx-auto mb-8 max-w-[900px]"
-          aria-live="polite"
-        >
-          <Progress currentStep={currentStep} />
-        </motion.div>
+        {/* Progress Bar */}
+        <Progress currentStep={currentStep} totalSteps={3} className="mb-8 sm:mb-12" />
 
-        {/* form card (wider container, constrained inner width) */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, delay: 0.2 }}
-          className="mx-auto w-full max-w-[1040px]"
-        >
-          <div ref={formTopRef} className="overflow-hidden rounded-3xl border border-slate-200/70 bg-white/95 shadow-2xl backdrop-blur-sm">
-            <div className="flex items-center justify-between bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4 text-white sm:px-8 sm:py-5">
-              <div>
-                <h2 className="text-base font-semibold sm:text-lg">Step {currentStep} of 3</h2>
-                <p className="mt-0.5 text-xs text-blue-100 sm:text-sm">
-                  {currentStep === 1 && "Business Goals & Structure"}
-                  {currentStep === 2 && "Business Snapshot & Benefits"}
-                  {currentStep === 3 && "Contact & Report"}
-                </p>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className={`h-2 w-2 rounded-full ${currentStep >= 1 ? "bg-white" : "bg-white/40"}`} />
-                <span className={`h-2 w-2 rounded-full ${currentStep >= 2 ? "bg-white" : "bg-white/40"}`} />
-                <span className={`h-2 w-2 rounded-full ${currentStep >= 3 ? "bg-white" : "bg-white/40"}`} />
-              </div>
+        {/* Form Container */}
+        <FormProvider {...methods}>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 sm:space-y-12">
+            {/* Step Content */}
+            <div ref={formTopRef} className="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
+              <AnimatePresence mode="wait">
+                {currentStep === 1 && (
+                  <motion.div
+                    key="step1"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Step1Goals />
+                  </motion.div>
+                )}
+
+                {currentStep === 2 && (
+                  <motion.div
+                    key="step2"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Step2Snapshot />
+                  </motion.div>
+                )}
+
+                {currentStep === 3 && (
+                  <motion.div
+                    key="step3"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Step3Report />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
-            <FormProvider {...methods}>
-              <form onSubmit={handleSubmit(onSubmit)} role="group" aria-labelledby="scorecard-title">
-                {/* slides */}
-                <div className="relative">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentStep}
-                      initial={{ x: 280, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      exit={{ x: -280, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: "easeInOut" }}
-                      className="mx-auto w-full max-w-[900px] px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-12"
-                      style={{ minHeight: 480 }} // keeps consistent height for a steadier layout
-                    >
-                      {currentStep === 1 && <div data-qa="step-1"><Step1Goals /></div>}
-                      {currentStep === 2 && <div data-qa="step-2"><Step2Snapshot /></div>}
-                      {currentStep === 3 && <div data-qa="step-3"><Step3Report /></div>}
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-
-                {/* nav (sticky on mobile for easier reach) */}
-                <div className="border-t border-slate-200/70 bg-slate-50/80 px-6 py-4 backdrop-blur-sm sm:px-8 sm:py-5 lg:static lg:backdrop-blur-0 lg:bg-slate-50">
-                  <div className="mx-auto w-full max-w-[900px]">
-                    <NavButtons
-                      currentStep={currentStep}
-                      onNext={handleNext}
-                      onBack={handleBack}
-                      isNextDisabled={!canNext}   // <-- step-scoped validity
-                      isSubmitting={isSubmitting}
-                      isValid={isValid}           // full-form validity (if your NavButtons uses it)
-                    />
-                  </div>
-                </div>
-              </form>
-            </FormProvider>
-          </div>
-        </motion.div>
-
-        {/* footer trust row */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, delay: 0.25 }}
-          className="mx-auto mt-12 max-w-[900px] text-center text-sm text-slate-500"
-        >
-          <div className="inline-flex flex-wrap items-center justify-center gap-8">
-            <span className="flex items-center"><span className="mr-2 h-2 w-2 rounded-full bg-green-500" /> HIPAA Compliant</span>
-            <span className="flex items-center"><span className="mr-2 h-2 w-2 rounded-full bg-blue-500" /> No Spam Ever</span>
-            <span className="flex items-center"><span className="mr-2 h-2 w-2 rounded-full bg-purple-500" /> Expert Analysis</span>
-          </div>
-        </motion.div>
+            {/* Navigation Buttons */}
+            <NavButtons
+              currentStep={currentStep}
+              canNext={canNext}
+              isSubmitting={isSubmitting}
+              onNext={handleNext}
+              onPrevious={handleBack}
+            />
+          </form>
+        </FormProvider>
       </div>
-    </section>
+    </div>
   );
 }

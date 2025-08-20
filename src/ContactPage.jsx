@@ -9,7 +9,7 @@ import CustomerService from "./CustomerService";
 export function ContactHero({
   bgUrl = "/images/Contact.jpg",
   headline = "Talk to a Benefits Specialist",
-  subhead = "Whether you're an employer or an individual, we’re here to help you navigate affordable, compliant coverage.",
+  subhead = "Whether you're an employer or an individual, we're here to help you navigate affordable, compliant coverage.",
 }) {
   return (
     <section
@@ -40,7 +40,7 @@ export function ContactHero({
         }}
       />
 
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:py-28">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export function ContactHero({
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.08 }}
-          className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.05] text-white sm:text-5xl lg:text-6xl"
+          className="mt-4 max-w-3xl text-3xl sm:text-4xl font-extrabold leading-[1.05] text-white sm:text-5xl lg:text-6xl"
         >
           {headline}
         </motion.h1>
@@ -64,7 +64,7 @@ export function ContactHero({
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.16 }}
-          className="mt-5 max-w-2xl text-lg leading-relaxed text-white/90"
+          className="mt-4 sm:mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-white/90"
         >
           {subhead}
         </motion.p>
@@ -73,11 +73,11 @@ export function ContactHero({
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.24 }}
-          className="mt-8 flex flex-wrap items-center gap-3"
+          className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center gap-3 sm:gap-3"
         >
           <a
             href="#get-in-touch"
-            className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-slate-900 shadow-lg ring-1 ring-black/5 transition hover:scale-[1.02]"
+            className="inline-flex items-center justify-center rounded-xl bg-white px-5 sm:px-6 py-3 font-semibold text-slate-900 shadow-lg ring-1 ring-black/5 transition hover:scale-[1.02] text-sm sm:text-base"
           >
             Get in Touch
             <svg
@@ -96,7 +96,7 @@ export function ContactHero({
           </a>
           <a
             href="tel:+18001234567"
-            className="inline-flex items-center justify-center rounded-xl border border-white/40 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition hover:bg-white/20"
+            className="inline-flex items-center justify-center rounded-xl border border-white/40 bg-white/10 px-5 sm:px-6 py-3 font-semibold text-white backdrop-blur transition hover:bg-white/20 text-sm sm:text-base"
           >
             Call Us
           </a>

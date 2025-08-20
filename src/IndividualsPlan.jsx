@@ -40,15 +40,15 @@ const Pill = ({ children, delay = 0, tone = "indigo" }) => {
   };
   return (
     <motion.div
-      className="inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-slate-200"
+      className="inline-flex items-center gap-2 rounded-full bg-white/95 px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-slate-200"
       initial={{ opacity: 0, x: 10 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       animate={float(reduced, 4, 6)}
       transition={{ delay }}
     >
-      <span className={`grid h-6 w-6 place-items-center rounded-full bg-gradient-to-r ${tones[tone]} text-white`}>
-        <CheckIcon className="h-3.5 w-3.5" />
+      <span className={`grid h-5 w-5 sm:h-6 sm:w-6 place-items-center rounded-full bg-gradient-to-r ${tones[tone]} text-white`}>
+        <CheckIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
       </span>
       {children}
     </motion.div>

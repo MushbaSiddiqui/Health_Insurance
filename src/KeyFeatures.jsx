@@ -1,7 +1,4 @@
 // src/KeyFeaturesHub.jsx
-// Two-slide layout: slide 1 shows first 6 features, slide 2 shows remaining.
-// React + Tailwind + Framer Motion
-
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
@@ -32,7 +29,7 @@ const item = (r) => ({
   show: { opacity: 1, y: 0, transition: { duration: r ? 0 : 0.45, ease: "easeOut" } },
 });
 
-/* ----- Data (same copy as before) ----- */
+/* ----- Data ----- */
 const ALL_FEATURES = [
   { title: "40–60 % Lower Premiums", desc: "Because benefits are fixed, premiums are much lower than typical ACA plans .", tone: "from-emerald-600 to-teal-600" },
   { title: "No Deductibles, Copays or Coinsurance", desc: "You get paid immediately; there are no out-of-pocket costs before benefits kick in .", tone: "from-indigo-600 to-sky-600" },
@@ -49,29 +46,32 @@ const ALL_FEATURES = [
 ];
 
 const PAGE_SIZE = 6;
-const PAGES = [
-  ALL_FEATURES.slice(0, PAGE_SIZE),
-  ALL_FEATURES.slice(PAGE_SIZE),
-];
+const PAGES = [ALL_FEATURES.slice(0, PAGE_SIZE), ALL_FEATURES.slice(PAGE_SIZE)];
 
 /* ----- Rail Card ----- */
 function RailCard({ feature, reduced }) {
   const { title, desc, tone } = feature;
   return (
     <motion.li variants={item(reduced)} className="relative">
-      {/* L-connector */}
-      <span aria-hidden className="absolute right-full top-1/2 -translate-y-1/2 w-8 h-px bg-slate-300/70" />
-      <div className="relative overflow-hidden rounded-r-2xl rounded-l-[28px] bg-white shadow-sm ring-1 ring-slate-200">
-        <div className={`absolute inset-y-0 left-0 w-24 -skew-x-[18deg] origin-left bg-gradient-to-r ${tone}`} />
-        <div className="relative z-10 flex items-start gap-4 px-5 py-4 sm:px-6">
-          <span className="mt-0.5 grid h-10 w-10 place-items-center rounded-xl bg-white text-slate-900 shadow ring-1 ring-white/40">
-            <span className={`grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-r ${tone} text-white`}>
+      <span aria-hidden className="absolute right-full top-1/2 -translate-y-1/2 w-6 sm:w-8 h-px bg-slate-300/70 hidden sm:block" />
+      <div className="relative overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200">
+        {/* narrower stripe on mobile */}
+        <div className={`absolute inset-y-0 left-0 w-12 sm:w-20 lg:w-24 -skew-x-[18deg] origin-left bg-gradient-to-r ${tone}`} />
+        <div className="relative z-10 flex items-start gap-3 sm:gap-4 px-3 py-3 sm:px-6 sm:py-4">
+          <span className="mt-0.5 grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-xl bg-white text-slate-900 shadow ring-1 ring-white/40">
+            <span className={`grid h-7 w-7 sm:h-8 sm:w-8 place-items-center rounded-lg bg-gradient-to-r ${tone} text-white`}>
               <CheckIcon className="h-4 w-4" />
             </span>
           </span>
-          <div>
-            <h3 className="text-base font-semibold text-slate-900">{title}</h3>
-            <p className="mt-1 text-[14.5px] leading-relaxed text-slate-700">{desc}</p>
+
+          {/* TEXT BLOCK: force wrap + shrink */}
+          <div className="flex-1 min-w-0">
+            <h3 className="text-sm sm:text-base font-semibold text-slate-900 break-words">
+              {title}
+            </h3>
+            <p className="mt-1 text-xs sm:text-sm leading-snug text-slate-700 break-words">
+              {desc}
+            </p>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@ function RailCard({ feature, reduced }) {
 /* ----- Main ----- */
 export default function KeyFeaturesHub() {
   const reduced = useReducedMotion();
-  const [page, setPage] = useState(0); // 0 or 1
+  const [page, setPage] = useState(0);
 
   // Keyboard nav (← →)
   useEffect(() => {
@@ -100,49 +100,48 @@ export default function KeyFeaturesHub() {
       className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-cyan-50 to-indigo-50"
     >
       {/* glows */}
-      <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-fuchsia-300/25 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-emerald-300/25 blur-3xl" />
+      <div className="pointer-events-none absolute -top-24 -left-24 h-56 w-56 sm:h-72 sm:w-72 rounded-full bg-fuchsia-300/25 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 sm:h-80 sm:w-80 rounded-full bg-emerald-300/25 blur-3xl" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
-        <div className="mb-10 text-center md:mb-14">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-20">
+        <div className="mb-8 text-center sm:mb-14">
           <h2
             id="kfh-title"
-            className="bg-gradient-to-r from-slate-900 via-indigo-900 to-sky-800 bg-clip-text text-3xl font-extrabold leading-tight text-transparent sm:text-4xl"
+            className="bg-gradient-to-r from-slate-900 via-indigo-900 to-sky-800 bg-clip-text text-2xl sm:text-4xl font-extrabold leading-tight text-transparent"
           >
             Key Features &amp; Benefits
           </h2>
-          <div className="mx-auto mt-4 h-px w-16 bg-gradient-to-r from-emerald-500 to-sky-600" />
+          <div className="mx-auto mt-3 h-px w-12 sm:w-16 bg-gradient-to-r from-emerald-500 to-sky-600" />
         </div>
 
         <motion.div
           variants={container(reduced)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-120px" }}
-          className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[460px,1fr]"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[400px,1fr]"
         >
           {/* HUB */}
           <motion.div variants={item(reduced)} className="relative mx-auto lg:mx-0">
-            <div className="relative h-[320px] w-[320px]">
+            <div className="relative h-48 w-48 sm:h-72 sm:w-72 lg:h-80 lg:w-80">
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 opacity-90" />
-              <div className="absolute inset-6 rounded-full bg-white" />
-              <div className="absolute inset-12 rounded-full bg-gradient-to-br from-sky-50 to-indigo-50 ring-1 ring-slate-200" />
+              <div className="absolute inset-4 sm:inset-6 rounded-full bg-white" />
+              <div className="absolute inset-8 sm:inset-12 rounded-full bg-gradient-to-br from-sky-50 to-indigo-50 ring-1 ring-slate-200" />
               <div className="absolute inset-0 grid place-items-center">
                 <div className="flex flex-col items-center text-center">
-                  <span className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-r from-indigo-600 to-sky-600 text-white shadow">
-                    <IconList className="h-8 w-8" />
+                  <span className="grid h-12 w-12 sm:h-16 sm:w-16 place-items-center rounded-2xl bg-gradient-to-r from-indigo-600 to-sky-600 text-white shadow">
+                    <IconList className="h-6 w-6 sm:h-8 sm:w-8" />
                   </span>
-                  <span className="mt-3 text-lg font-bold text-slate-900">Key Features</span>
+                  <span className="mt-2 sm:mt-3 text-base sm:text-lg font-bold text-slate-900">Key Features</span>
                 </div>
               </div>
-              <span className="absolute inset-0 rounded-full ring-4 ring-emerald-400/20 animate-pulse" />
+              <span className="absolute inset-0 rounded-full ring-2 sm:ring-4 ring-emerald-400/20 animate-pulse" />
             </div>
           </motion.div>
 
-          {/* SLIDER: rail + cards */}
+          {/* SLIDER */}
           <div className="relative">
-            {/* vertical rail (only on lg+) */}
-            <span aria-hidden className="absolute -left-8 top-0 bottom-0 w-px bg-slate-300/70 hidden lg:block" />
+            <span aria-hidden className="absolute -left-6 sm:-left-8 top-0 bottom-0 w-px bg-slate-300/70 hidden lg:block" />
 
             <div className="overflow-hidden" aria-live="polite">
               <motion.div
@@ -152,11 +151,7 @@ export default function KeyFeaturesHub() {
                 style={{ width: `${PAGES.length * 100}%` }}
               >
                 {PAGES.map((group, idx) => (
-                  <ul
-                    key={idx}
-                    className="min-w-full grid grid-cols-1 gap-5"
-                    aria-label={idx === 0 ? "Features 1–6" : "Features 7–12"}
-                  >
+                  <ul key={idx} className="min-w-full grid grid-cols-1 gap-4 sm:gap-5">
                     {group.map((f) => (
                       <RailCard key={f.title} feature={f} reduced={reduced} />
                     ))}
@@ -166,22 +161,25 @@ export default function KeyFeaturesHub() {
             </div>
 
             {/* Controls */}
-            <div className="mt-6 flex items-center justify-between">
+            <div className="mt-5 sm:mt-6 flex items-center justify-between gap-3">
               <button
                 onClick={() => setPage((p) => Math.max(p - 1, 0))}
                 disabled={page === 0}
-                className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-50"
+                className="rounded-full bg-white px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-50"
               >
                 ← Back
               </button>
 
-              <div className="flex items-center gap-2">
+              {/* smaller dots on mobile */}
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 {PAGES.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setPage(i)}
                     aria-label={`Go to slide ${i + 1}`}
-                    className={`h-2.5 w-2.5 rounded-full ${page === i ? "bg-indigo-600" : "bg-slate-300 hover:bg-slate-400"}`}
+                    className={`h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full transition-colors ${
+                      page === i ? "bg-indigo-600" : "bg-slate-300 hover:bg-slate-400"
+                    }`}
                   />
                 ))}
               </div>
@@ -189,7 +187,7 @@ export default function KeyFeaturesHub() {
               <button
                 onClick={() => setPage((p) => Math.min(p + 1, PAGES.length - 1))}
                 disabled={page === PAGES.length - 1}
-                className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-50"
+                className="rounded-full bg-white px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-50"
               >
                 {page === 0 ? "Show next 6 →" : "End"}
               </button>

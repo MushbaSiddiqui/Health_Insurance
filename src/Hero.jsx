@@ -180,17 +180,17 @@ export default function Hero() {
 
         {/* Glassmorphism Card */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             
             {/* Left Content */}
             <motion.div
-              className="text-center lg:text-left"
+              className="text-center lg:text-left order-2 lg:order-1"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
               <motion.h1
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6"
                 variants={itemVariants}
                 data-qa="hero-title"
               >
@@ -198,48 +198,48 @@ export default function Hero() {
               </motion.h1>
 
               <motion.p
-                className="text-xl text-blue-100 mb-8"
+                className="text-lg sm:text-xl text-blue-100 mb-6 sm:mb-8"
                 variants={itemVariants}
               >
                 Offer two paths to affordable healthcare:
               </motion.p>
 
               <motion.ul
-                className="space-y-4 mb-8"
+                className="space-y-3 sm:space-y-4 mb-6 sm:mb-8"
                 variants={itemVariants}
               >
                 <li className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-1">
+                  <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center mt-1">
                     <IconCheck />
                   </div>
-                  <span className="text-blue-100">
+                  <span className="text-sm sm:text-base text-blue-100">
                     <strong>For Businesses:</strong> Add zero-net-cost virtual health benefits and lower your payroll taxes.
                   </span>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center mt-1">
+                  <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 bg-blue-500 rounded-full flex items-center justify-center mt-1">
                     <IconShieldHeart />
                   </div>
-                  <span className="text-blue-100">
+                  <span className="text-sm sm:text-base text-blue-100">
                     <strong>For Individuals & Families:</strong> Get lower-cost health protection with no deductibles.
                   </span>
                 </li>
               </motion.ul>
 
               <motion.p
-                className="text-sm text-gray-400 mb-8"
+                className="text-xs sm:text-sm text-gray-400 mb-6 sm:mb-8"
                 variants={itemVariants}
               >
                 Not insurance advice. For educational purposes only.
               </motion.p>
 
               <motion.div
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
                 variants={itemVariants}
               >
                 <motion.a
                   href="/employers"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-indigo-900 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50"
+                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-indigo-900 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50 text-sm sm:text-base"
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
@@ -249,14 +249,14 @@ export default function Hero() {
                   aria-label="Learn about employer health plans"
                 >
                   Learn About Employer Plan
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </motion.a>
 
                 <motion.a
                   href="/individuals"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white hover:bg-white hover:text-indigo-900 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50"
+                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white hover:bg-white hover:text-indigo-900 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50 text-sm sm:text-base"
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
@@ -266,7 +266,7 @@ export default function Hero() {
                   aria-label="Explore individual health plans"
                 >
                   Explore Individual Plans
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </motion.a>
@@ -279,7 +279,7 @@ export default function Hero() {
 
             {/* Right Visual */}
             <motion.div
-              className="hidden lg:block relative"
+              className="hidden lg:block relative order-1 lg:order-2"
               variants={itemVariants}
             >
               <HealthcareIllustration prefersReducedMotion={!!prefersReducedMotion} />

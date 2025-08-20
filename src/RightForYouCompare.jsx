@@ -95,15 +95,15 @@ export default function IndemnityRightCompareVivid({ imgSrc = "git add .images/i
       <div className="pointer-events-none absolute -top-24 -right-16 h-72 w-72 rounded-full bg-sky-300/35 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-80 rounded-full bg-indigo-300/35 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
         {/* ===== Header card (image + decision boxes) ===== */}
-        <motion.div {...fx.rise} className="rounded-[28px] bg-white/70 p-[2px] shadow-[0_20px_60px_rgba(2,6,23,0.12)] ring-1 ring-white/40 backdrop-blur">
-          <div className="rounded-[26px] bg-gradient-to-br from-white/90 to-slate-50/80">
-            <div className="grid grid-cols-1 gap-8 p-6 sm:p-8 lg:grid-cols-12">
+        <motion.div {...fx.rise} className="rounded-[20px] sm:rounded-[28px] bg-white/70 p-[2px] shadow-[0_20px_60px_rgba(2,6,23,0.12)] ring-1 ring-white/40 backdrop-blur">
+          <div className="rounded-[18px] sm:rounded-[26px] bg-gradient-to-br from-white/90 to-slate-50/80">
+            <div className="grid grid-cols-1 gap-6 sm:gap-8 p-4 sm:p-6 lg:p-8 lg:grid-cols-12">
               {/* Left: Illustration */}
               <div className="lg:col-span-5">
-                <figure className="relative overflow-hidden rounded-3xl ring-1 ring-slate-200/70">
-                  <img src={imgSrc} alt="" className="h-72 w-full object-cover sm:h-80 lg:h-[420px]" />
+                <figure className="relative overflow-hidden rounded-2xl sm:rounded-3xl ring-1 ring-slate-200/70">
+                  <img src={imgSrc} alt="" className="h-48 sm:h-72 w-full object-cover sm:h-80 lg:h-[420px]" />
                   <div className="absolute inset-0 bg-gradient-to-tr from-sky-600/25 via-indigo-600/20 to-transparent mix-blend-multiply" />
                   <div className="absolute inset-0 opacity-15" style={{ backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)", backgroundSize: "10px 10px" }} />
                 </figure>
@@ -116,18 +116,18 @@ export default function IndemnityRightCompareVivid({ imgSrc = "git add .images/i
                   <Chip tone="emerald" label="Budget-Friendly" />
                 </div>
 
-                <h2 className="mt-4 bg-gradient-to-r from-slate-900 via-indigo-900 to-sky-800 bg-clip-text text-3xl font-extrabold tracking-tight text-transparent sm:text-4xl">
+                <h2 className="mt-4 bg-gradient-to-r from-slate-900 via-indigo-900 to-sky-800 bg-clip-text text-2xl sm:text-3xl font-extrabold tracking-tight text-transparent sm:text-4xl">
                   Is Fixed Indemnity Right for You?
                 </h2>
 
-                <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div className="mt-6 grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
                   {/* Great For */}
-                  <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <div className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm">
                     <div className="mb-3 flex items-center justify-between">
                       <h3 className="text-sm font-semibold text-slate-900">Great For</h3>
                       <Chip tone="emerald" label="Recommended" />
                     </div>
-                    <ul className="grid list-disc gap-2 pl-5 text-[15px] leading-relaxed text-slate-700">
+                    <ul className="grid list-disc gap-1.5 sm:gap-2 pl-4 sm:pl-5 text-[14px] sm:text-[15px] leading-relaxed text-slate-700">
                       {GREAT_FOR.map((g) => (
                         <li key={g}>{g}</li>
                       ))}
@@ -135,12 +135,12 @@ export default function IndemnityRightCompareVivid({ imgSrc = "git add .images/i
                   </div>
 
                   {/* Not Ideal For */}
-                  <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <div className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm">
                     <div className="mb-3 flex items-center justify-between">
                       <h3 className="text-sm font-semibold text-slate-900">Not Ideal For</h3>
                       <Chip tone="rose" label="Consider Major Medical" />
                     </div>
-                    <p className="text-[15px] leading-relaxed text-slate-700">{NOT_IDEAL}</p>
+                    <p className="text-[14px] sm:text-[15px] leading-relaxed text-slate-700">{NOT_IDEAL}</p>
                   </div>
                 </div>
               </div>
@@ -149,40 +149,40 @@ export default function IndemnityRightCompareVivid({ imgSrc = "git add .images/i
         </motion.div>
 
         {/* ===== Comparison Chart ===== */}
-        <motion.div {...fx.fade} className="mt-12 lg:mt-16">
-          <div className="mb-7 text-center">
-            <h3 className="text-2xl font-bold text-slate-900 sm:text-3xl">Compare Plans Side-by-Side</h3>
+        <motion.div {...fx.fade} className="mt-8 sm:mt-12 lg:mt-16">
+          <div className="mb-6 sm:mb-7 text-center">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 sm:text-3xl">Compare Plans Side-by-Side</h3>
             <p className="mx-auto mt-2 max-w-2xl text-sm text-slate-600">
               A quick snapshot of how fixed indemnity compares with major medical.
             </p>
           </div>
 
           {/* Desktop / tablet (cards like your reference) */}
-          <div className="hidden rounded-[26px] bg-gradient-to-br from-sky-100/60 to-indigo-100/50 p-6 shadow-[0_18px_40px_rgba(2,6,23,0.08)] md:block">
+          <div className="hidden rounded-[20px] sm:rounded-[26px] bg-gradient-to-br from-sky-100/60 to-indigo-100/50 p-4 sm:p-6 shadow-[0_18px_40px_rgba(2,6,23,0.08)] md:block">
             {/* Header row */}
-            <div className="grid grid-cols-12 gap-4">
-              <div className="col-span-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 px-4 py-3 text-center text-sm font-semibold text-white shadow">
+            <div className="grid grid-cols-12 gap-3 sm:gap-4">
+              <div className="col-span-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 px-3 sm:px-4 py-2 sm:py-3 text-center text-xs sm:text-sm font-semibold text-white shadow">
                 Feature
               </div>
-              <div className="col-span-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 px-4 py-3 text-center text-sm font-semibold text-white shadow">
+              <div className="col-span-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 px-3 sm:px-4 py-2 sm:py-3 text-center text-xs sm:text-sm font-semibold text-white shadow">
                 Major Medical
               </div>
-              <div className="col-span-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 px-4 py-3 text-center text-sm font-semibold text-white shadow">
+              <div className="col-span-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 px-3 sm:px-4 py-2 sm:py-3 text-center text-xs sm:text-sm font-semibold text-white shadow">
                 Fixed Indemnity
               </div>
             </div>
 
-            <div className="mt-4 space-y-3">
+            <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-3">
               {ROWS.map((r) => (
-                <div key={r.feature} className="grid grid-cols-12 gap-4">
-                  <div className="col-span-4 rounded-xl bg-white px-4 py-4 text-center text-[15px] font-medium text-slate-900 shadow-sm">
+                <div key={r.feature} className="grid grid-cols-12 gap-3 sm:gap-4">
+                  <div className="col-span-4 rounded-lg sm:rounded-xl bg-white px-3 sm:px-4 py-3 sm:py-4 text-center text-[13px] sm:text-[15px] font-medium text-slate-900 shadow-sm">
                     {r.feature}
                   </div>
-                  <div className="col-span-4 grid place-items-center rounded-xl bg-white px-4 py-4 shadow-sm">
-                    {typeof r.major === "boolean" ? <BoolCell val={r.major} /> : <span className="text-sm text-slate-800">{r.major}</span>}
+                  <div className="col-span-4 grid place-items-center rounded-lg sm:rounded-xl bg-white px-3 sm:px-4 py-3 sm:py-4 shadow-sm">
+                    {typeof r.major === "boolean" ? <BoolCell val={r.major} /> : <span className="text-xs sm:text-sm text-slate-800">{r.major}</span>}
                   </div>
-                  <div className="col-span-4 grid place-items-center rounded-xl bg-white px-4 py-4 shadow-sm">
-                    {typeof r.indemnity === "boolean" ? <BoolCell val={r.indemnity} /> : <span className="text-sm text-slate-800">{r.indemnity}</span>}
+                  <div className="col-span-4 grid place-items-center rounded-lg sm:rounded-xl bg-white px-3 sm:px-4 py-3 sm:py-4 shadow-sm">
+                    {typeof r.indemnity === "boolean" ? <BoolCell val={r.indemnity} /> : <span className="text-xs sm:text-sm text-slate-800">{r.indemnity}</span>}
                   </div>
                 </div>
               ))}
@@ -190,8 +190,8 @@ export default function IndemnityRightCompareVivid({ imgSrc = "git add .images/i
           </div>
 
           {/* Mobile: condensed grid */}
-          <div className="grid gap-6 md:hidden">
-            <div className="rounded-[24px] bg-gradient-to-br from-sky-100/60 to-indigo-100/50 p-5 shadow-[0_18px_40px_rgba(2,6,23,0.08)]">
+          <div className="grid gap-4 sm:gap-6 md:hidden">
+            <div className="rounded-[20px] sm:rounded-[24px] bg-gradient-to-br from-sky-100/60 to-indigo-100/50 p-4 sm:p-5 shadow-[0_18px_40px_rgba(2,6,23,0.08)]">
               <div className="grid grid-cols-3 gap-2">
                 <div className="rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 px-2 py-2 text-center text-xs font-semibold text-white shadow">
                   Feature
@@ -207,14 +207,14 @@ export default function IndemnityRightCompareVivid({ imgSrc = "git add .images/i
               <div className="mt-3 space-y-2">
                 {ROWS.map((r) => (
                   <div key={r.feature} className="grid grid-cols-3 items-center gap-2">
-                    <div className="rounded-lg bg-white px-2 py-3 text-center text-[13px] font-medium text-slate-900 shadow-sm">
+                    <div className="rounded-lg bg-white px-2 py-2.5 sm:py-3 text-center text-[12px] sm:text-[13px] font-medium text-slate-900 shadow-sm">
                       {r.feature}
                     </div>
-                    <div className="grid place-items-center rounded-lg bg-white px-2 py-3 shadow-sm">
-                      {typeof r.major === "boolean" ? <BoolCell val={r.major} /> : <span className="text-[13px] text-slate-800">{r.major}</span>}
+                    <div className="grid place-items-center rounded-lg bg-white px-2 py-2.5 sm:py-3 shadow-sm">
+                      {typeof r.major === "boolean" ? <BoolCell val={r.major} /> : <span className="text-[12px] sm:text-[13px] text-slate-800">{r.major}</span>}
                     </div>
-                    <div className="grid place-items-center rounded-lg bg-white px-2 py-3 shadow-sm">
-                      {typeof r.indemnity === "boolean" ? <BoolCell val={r.indemnity} /> : <span className="text-[13px] text-slate-800">{r.indemnity}</span>}
+                    <div className="grid place-items-center rounded-lg bg-white px-2 py-2.5 sm:py-3 shadow-sm">
+                      {typeof r.indemnity === "boolean" ? <BoolCell val={r.indemnity} /> : <span className="text-[12px] sm:text-[13px] text-slate-800">{r.indemnity}</span>}
                     </div>
                   </div>
                 ))}
@@ -222,7 +222,7 @@ export default function IndemnityRightCompareVivid({ imgSrc = "git add .images/i
             </div>
           </div>
 
-          <p className="mt-6 text-center text-xs text-slate-500">
+          <p className="mt-4 sm:mt-6 text-center text-xs text-slate-500">
             For education only — not insurance advice. Plan specifics vary by carrier and state.
           </p>
         </motion.div>
