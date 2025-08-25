@@ -5,6 +5,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CustomerService from "./CustomerService";
+import Footer from "./components/Footer";
 
 export function ContactHero({
   bgUrl = "/images/Contact.jpg",
@@ -263,6 +264,7 @@ export function GetInTouch({
       </div>
     </section>
     <CustomerService/>
+    <Footer />
     </>
   );
 }

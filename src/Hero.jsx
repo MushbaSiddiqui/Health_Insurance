@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Navigation from './Navigation';
 import WhyWeExist from './WhyWeExist';
 import TestimonialsAuto from './TestimonialsAuto';
+import Footer from './components/Footer';
 
 // SVG Icons
 const IconCheck = () => (
@@ -301,6 +302,7 @@ export default function Hero() {
        </section>
        <WhyWeExist />
        <TestimonialsAuto/>
+       <Footer />
      </>
    );
  }

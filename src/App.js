@@ -6,6 +6,7 @@ import EmployerPlan from "./EmployerPlan"; // export default of the Employer her
 import IndividualPlan from "./IndividualsPlan";
 import AboutHero from "./AboutHero";
 import ContactUs from "./ContactPage";
+import CompliancePage from "./Compliance";
 import ResourcesInsightsPage from './ResourcesInsightsPage';
 import Section125Guide from "./Section125Guide";
 import FixedIndemnityGuide from "./FixedIndemnityGuide";
@@ -15,6 +16,7 @@ import PostFutureVirtualCare from "./pages/blog/PostFutureVirtualCare";
 import PostTelehealth39 from "./pages/blog/PostTelehealth39";
 import PostWellnessDoubleDip from "./pages/blog/PostWellnessDoubleDip";
 import PostSection125CaseStudies from "./pages/blog/PostSection125CaseStudies";
+import ComplianceRegulatoryNotes from './ComplianceAndRequlatory';
 export default function App() {
   return (
     <BrowserRouter>
@@ -26,6 +28,7 @@ export default function App() {
         <Route path="/about" element={<AboutHero />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/resources" element={<ResourcesInsightsPage />} />
+        <Route path="/compliance" element={<CompliancePage />} />
         <Route path="/guides/section-125-fica" element={<Section125Guide />} />
         <Route path="/guides/fixed-indemnity" element={<FixedIndemnityGuide />} />
         <Route path="/guides/fia-safe-growth" element={<FIAGuide />} />

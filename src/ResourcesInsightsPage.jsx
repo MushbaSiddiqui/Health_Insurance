@@ -2,6 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BlogIndex from "./BlogIndex";
+import Footer from "./components/Footer";
 
 export default function ResourcesInsightsPage() {
   return (
@@ -139,6 +140,7 @@ function GuidesAndWhitePapers() {
       </div>
     </section>
    <BlogIndex/>
+   <Footer />
     </>
   );
 }

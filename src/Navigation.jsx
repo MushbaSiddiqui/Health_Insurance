@@ -20,6 +20,7 @@ const navLinks = [
   { name: "Individual & Family Plan", to: "/individual-family-plan" },
   { name: "Resources & Insights", to: "/resources" },
   { name: "Contact", to: "/contact" },
+  { name: "Compliance & Legal Notice", to: "/compliance" },
 ];
 
 export default function Navigation() {

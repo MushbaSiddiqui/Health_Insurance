@@ -9,6 +9,7 @@ import RightForYouCompare from "./RightForYouCompare";
 import CustomerStories from "./CustomerStories";
 import FaqIndividuals from "./FaqIndividuals";
 import LegalDisclosures from "./LegalDisclosures";
+import Footer from "./components/Footer";
 /* Image lives in public/Images */
 const ILLUSTRATION = "/Images/healthinsurance.png";
 
@@ -185,6 +186,7 @@ export default function IndividualsHero({
     <CustomerStories/>
     <FaqIndividuals/>
     <LegalDisclosures/>
+    <Footer />
     </>
   );
 }

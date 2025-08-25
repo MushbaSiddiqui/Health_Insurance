@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import OurStory from './OurStory';
 import MeetLeadership from './MeetLeadership';
 import OurValues from "./OurValues";
+import Footer from "./components/Footer";
 
 const DEFAULT_BG =
   "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=1600&auto=format&fit=crop"; // placeholder
@@ -220,6 +221,7 @@ export default function AboutHero({
     <OurStory/>
     <MeetLeadership/>
     <OurValues/>
+    <Footer />
     </>
   );
 }

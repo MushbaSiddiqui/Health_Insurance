@@ -11,6 +11,7 @@ import RealWordResults from './RealWorldResults';
 import ScoredForm from './ScorecardForm';
 import FAQ from './FAQs';
 import CaR from './ComplianceAndRequlatory';
+import Footer from './components/Footer';
 /** Put the image at public/images/health-insurance-hero.jpg (or rename below) */
 const BG_URL = "/images/health-insurance-hero.jpg";
 
@@ -212,6 +213,7 @@ export default function EmployerHero() {
     <ScoredForm/>
     <FAQ/>
     <CaR/>
+    <Footer />
     </>
   );
 }
