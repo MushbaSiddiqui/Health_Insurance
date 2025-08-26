@@ -29,7 +29,7 @@ const RealWorldResults = () => {
       title: "Daycare Business Owner",
       callout: "increased cashflow and employee benefits.",
       testimonial: "Once Sam showed me the tax savings I was all in. Plus my employees are able to get healthcare benefits with no copays or deductible. Now I have cashflow to help grow my business.",
-      photo: "https://picsum.photos/seed/no/640/360",
+      photo: "/Images/owner.jpg",
       pills: [
         { text: "Cashflow ↑", variant: "bg-indigo-100 text-indigo-800", icon: <TrendUpIcon /> },
         { text: "Benefits ↑", variant: "bg-emerald-100 text-emerald-800", icon: <TrendUpIcon /> }
@@ -41,7 +41,7 @@ const RealWorldResults = () => {
       title: "Restaurant Owner (3 locations)",
       callout: "happier staff and increased paychecks.",
       testimonial: "I'm glad that I chose to offer this plan to my employees and my employees are excited to have benefits now and like the increase in their paycheck.",
-      photo: "https://picsum.photos/seed/sk/640/360",
+      photo: "/Images/ovwner1.jpg",
       pills: [
         { text: "Happiness ↑", variant: "bg-sky-100 text-sky-800", icon: <TrendUpIcon /> },
         { text: "Pay ↑", variant: "bg-violet-100 text-violet-800", icon: <TrendUpIcon /> }
@@ -53,7 +53,7 @@ const RealWorldResults = () => {
       title: "Grocery Outlet Owner",
       callout: "reduced turnover and improved recruitment.",
       testimonial: "We were losing some of our best employees because we did not offer any benefits. Thankfully, we came across this plan and immediately saw the value of adding it for our employees. Not only did we stop losing employees, now we had a plan in place to help attract quality employers as well!",
-      photo: "https://picsum.photos/seed/gk/640/360",
+      photo: "/Images/gk.jpg",
       pills: [
         { text: "Turnover ↓", variant: "bg-emerald-100 text-emerald-800", icon: <TrendDownIcon /> },
         { text: "Recruitment ↑", variant: "bg-indigo-100 text-indigo-800", icon: <TrendUpIcon /> }

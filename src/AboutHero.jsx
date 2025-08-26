@@ -108,7 +108,7 @@ export default function AboutHero({
               className="mt-8 flex flex-wrap items-center gap-3"
             >
               <a
-                href="#our-mission"
+                href="#our-story"
                 onClick={onPrimary}
                 className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-slate-900 shadow-lg ring-1 ring-black/5 transition hover:scale-[1.02]"
               >
@@ -129,7 +129,7 @@ export default function AboutHero({
               </a>
 
               <a
-                href="#team"
+                href="#leadership"
                 onClick={onSecondary}
                 className="inline-flex items-center justify-center rounded-xl border border-white/40 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition hover:bg-white/20"
               >
@@ -205,7 +205,7 @@ export default function AboutHero({
                     </svg>
                   </div>
                   <div>
-                    <div className="text-sm font-semibold">About Corebridge Health</div>
+                    <div className="text-sm font-semibold">About InspirZhealth</div>
                     <p className="text-xs text-slate-600">
                       We blend preventive virtual care with fixed indemnity
                       benefits to help people and businesses prosper.

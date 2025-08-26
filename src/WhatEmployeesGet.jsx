@@ -94,7 +94,7 @@ export default function EmployeesGetHero() {
 
             <motion.div variants={item(reduced)} className="mt-8">
               <a
-                href="/individuals"
+                href="#what-employers-gain"
                 className="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 Explore Benefits

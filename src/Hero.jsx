@@ -239,7 +239,7 @@ export default function Hero() {
                 variants={itemVariants}
               >
                 <motion.a
-                  href="/employers"
+                  href="/employer-plan"
                   className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-indigo-900 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50 text-sm sm:text-base"
                   variants={buttonVariants}
                   whileHover="hover"
@@ -256,7 +256,7 @@ export default function Hero() {
                 </motion.a>
 
                 <motion.a
-                  href="/individuals"
+                  href="/individual-family-plan"
                   className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white hover:bg-white hover:text-indigo-900 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50 text-sm sm:text-base"
                   variants={buttonVariants}
                   whileHover="hover"

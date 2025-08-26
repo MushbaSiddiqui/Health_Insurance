@@ -4,6 +4,7 @@ import Section125Compliance from "./Section125ComplianceN";
 import Footer from "./components/Footer";
 import ACALimited from "./AcaLimitedBenefit";
 import NonDiscrimination from "./NonDiscriminationAccessibility";
+import Privacy from "./privacy-policy1";
 
 export default function Section125Hero() {
   return (
@@ -73,6 +74,7 @@ export default function Section125Hero() {
      <Section125Compliance/>
      <ACALimited/>
      <NonDiscrimination/>
+     <Privacy/>
      <Footer/>
      </>
   );

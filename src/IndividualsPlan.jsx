@@ -10,8 +10,10 @@ import CustomerStories from "./CustomerStories";
 import FaqIndividuals from "./FaqIndividuals";
 import LegalDisclosures from "./LegalDisclosures";
 import Footer from "./components/Footer";
+import EnrollmentForm from "./Enroll";
 /* Image lives in public/Images */
 const ILLUSTRATION = "/Images/healthinsurance.png";
+
 
 /* Motion helpers */
 const container = (r) => ({
@@ -134,13 +136,13 @@ export default function IndividualsHero({
 
           <motion.div variants={item(reduced)} className="mt-8">
             <a
-              href="#quote"
+              href="#enrollment"
               role="button"
               onClick={onCtaClick}
               data-qa="cta-quote"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-fuchsia-600 to-sky-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:brightness-[1.05] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fuchsia-500"
             >
-              Get a Free Quote
+              Start Your Enrollment
               <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M7 4l6 6-6 6" />
               </svg>
@@ -163,7 +165,7 @@ export default function IndividualsHero({
           {/* Pill anchors */}
           <div className="relative aspect-[4/3] w-full max-w-[520px]">
             <div className="absolute left-0 top-2">
-              <Pill tone="emerald" delay={0.1}>$0 Copays</Pill>
+              <Pill tone="emerald" delay={0.1}>Simple Enrollment</Pill>
             </div>
             <div className="absolute right-0 top-0">
               <Pill tone="indigo" delay={0.2}>Keep Your Doctor</Pill>
@@ -172,7 +174,7 @@ export default function IndividualsHero({
               <Pill tone="violet" delay={0.3}>Fast Claims</Pill>
             </div>
             <div className="absolute right-0 bottom-3">
-              <Pill tone="emerald" delay={0.4}>No Deductibles</Pill>
+              <Pill tone="emerald" delay={0.4}>Predictable Payouts</Pill>
             </div>
           </div>
         </div>
@@ -183,6 +185,7 @@ export default function IndividualsHero({
     <HowItWorks/>
     <WhyChooseIndemnity/>
     <RightForYouCompare/>
+    <EnrollmentForm/>
     <CustomerStories/>
     <FaqIndividuals/>
     <LegalDisclosures/>

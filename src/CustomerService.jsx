@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 
 export default function CustomerService({
-  privacyUrl = "/privacy",
-  termsUrl = "/terms",
-  hipaaUrl = "/hipaa-notice",
-  nondiscriminationUrl = "/non-discrimination",
+  privacyUrl = "/privacy-policy",
+  termsUrl = "/pricavy-policy",
+  hipaaUrl = "/Compliance",
+  nondiscriminationUrl = "/Compliance",
   hours = [
     { day: "Mon–Fri", time: "9:00 AM – 6:00 PM (ET)" },
     { day: "Sat", time: "10:00 AM – 2:00 PM (ET)" },
@@ -14,28 +14,119 @@ export default function CustomerService({
 }) {
   const [status, setStatus] = useState({ type: "", msg: "" });
   const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    category: "general",
+    subject: "",
+    message: "",
+    consent: false
+  });
+  const [errors, setErrors] = useState({});
+
+  // Validation function
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Email is invalid";
+    if (!formData.subject.trim()) newErrors.subject = "Subject is required";
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+    if (!formData.consent) newErrors.consent = "You must agree to the terms";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Handle input changes
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: "" }));
+    }
+  };
+
+
 
   async function handleSubmit(e) {
     e.preventDefault();
     setStatus({ type: "", msg: "" });
+    
+    // Validate form
+    if (!validateForm()) {
+      setStatus({
+        type: "error",
+        msg: "Please fill in all required fields correctly."
+      });
+      return;
+    }
+
     setLoading(true);
 
-    // Collect form data
-    const form = new FormData(e.currentTarget);
-    const payload = Object.fromEntries(form.entries());
+    try {
+      // Prepare data for Excel
+      const payload = {
+        ...formData,
+        timestamp: new Date().toISOString(),
+        phone: formData.phone || "Not provided"
+      };
 
-    // TODO: Replace with your API / Make / n8n / GHL endpoint
-    // Example: await fetch("/api/support", { method: "POST", body: form })
+      // Save data to Google Sheet via backend
+      const response = await fetch('http://localhost:3001/api/customer-service', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: payload.name,
+          email: payload.email,
+          phone: payload.phone,
+          category: payload.category,
+          subject: payload.subject,
+          message: payload.message,
+          consent: payload.consent
+        })
+      });
 
-    // Fake delay to demonstrate success
-    await new Promise((r) => setTimeout(r, 800));
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
 
-    setLoading(false);
-    setStatus({
-      type: "success",
-      msg: "Thanks! Your message has been received. Our support team will reply within 1 business day.",
-    });
-    e.currentTarget.reset();
+      // Show success message
+      setLoading(false);
+      setStatus({
+        type: "success",
+        msg: "Thanks! Your message has been received and saved. Our support team will reply within 1 business day.",
+      });
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        category: "general",
+        subject: "",
+        message: "",
+        consent: false
+      });
+      setErrors({});
+      
+    } catch (error) {
+      console.error('Submission error:', error);
+      setLoading(false);
+      setStatus({
+        type: "error",
+        msg: "Sorry, there was an error submitting your form. Please try again or contact us directly.",
+      });
+    }
   }
 
   return (
@@ -51,6 +142,7 @@ export default function CustomerService({
           <p className="mt-4 text-lg text-slate-600">
             Need help with your plan, claims, or enrollment? Send us a message and we’ll get back to you.
           </p>
+
         </header>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-3">
@@ -110,30 +202,40 @@ export default function CustomerService({
               <fieldset className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="sm:col-span-1">
                   <label htmlFor="name" className="text-sm font-medium text-slate-800">
-                    Full Name
+                    Full Name *
                   </label>
                   <input
                     id="name"
                     name="name"
                     type="text"
                     required
-                    className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm shadow-sm focus:outline-none ${
+                      errors.name ? 'border-red-500 focus:border-red-500' : 'border-slate-300 focus:border-indigo-500'
+                    }`}
                     placeholder="Jane Doe"
                   />
+                  {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name}</p>}
                 </div>
 
                 <div className="sm:col-span-1">
                   <label htmlFor="email" className="text-sm font-medium text-slate-800">
-                    Email
+                    Email *
                   </label>
                   <input
                     id="email"
                     name="email"
                     type="email"
                     required
-                    className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm shadow-sm focus:outline-none ${
+                      errors.email ? 'border-red-500 focus:border-red-500' : 'border-slate-300 focus:border-indigo-500'
+                    }`}
                     placeholder="you@example.com"
                   />
+                  {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email}</p>}
                 </div>
 
                 <div className="sm:col-span-1">
@@ -144,6 +246,8 @@ export default function CustomerService({
                     id="phone"
                     name="phone"
                     type="tel"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none"
                     placeholder="+1 (555) 555-1234"
                   />
@@ -156,8 +260,9 @@ export default function CustomerService({
                   <select
                     id="category"
                     name="category"
+                    value={formData.category}
+                    onChange={handleInputChange}
                     className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none"
-                    defaultValue="general"
                   >
                     <option value="general">General Question</option>
                     <option value="plan">Plan & Benefits</option>
@@ -169,30 +274,40 @@ export default function CustomerService({
 
                 <div className="sm:col-span-2">
                   <label htmlFor="subject" className="text-sm font-medium text-slate-800">
-                    Subject
+                    Subject *
                   </label>
                   <input
                     id="subject"
                     name="subject"
                     type="text"
                     required
-                    className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm shadow-sm focus:outline-none ${
+                      errors.subject ? 'border-red-500 focus:border-red-500' : 'border-slate-300 focus:border-indigo-500'
+                    }`}
                     placeholder="How can we help?"
                   />
+                  {errors.subject && <p className="mt-1 text-xs text-red-600">{errors.subject}</p>}
                 </div>
 
                 <div className="sm:col-span-2">
                   <label htmlFor="message" className="text-sm font-medium text-slate-800">
-                    Message
+                    Message *
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={6}
                     required
-                    className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm shadow-sm focus:outline-none ${
+                      errors.message ? 'border-red-500 focus:border-red-500' : 'border-slate-300 focus:border-indigo-500'
+                    }`}
                     placeholder="Describe the issue or question…"
                   />
+                  {errors.message && <p className="mt-1 text-xs text-red-600">{errors.message}</p>}
                 </div>
 
                 <div className="sm:col-span-2">
@@ -201,7 +316,11 @@ export default function CustomerService({
                       type="checkbox"
                       name="consent"
                       required
-                      className="mt-1 h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                      checked={formData.consent}
+                      onChange={handleInputChange}
+                      className={`mt-1 h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 ${
+                        errors.consent ? 'ring-2 ring-red-500' : ''
+                      }`}
                     />
                     <span>
                       I agree to the{" "}
@@ -212,9 +331,10 @@ export default function CustomerService({
                       <a className="text-indigo-700 underline" href={privacyUrl}>
                         Privacy Policy
                       </a>
-                      .
+                      . *
                     </span>
                   </label>
+                  {errors.consent && <p className="mt-1 text-xs text-red-600">{errors.consent}</p>}
                 </div>
               </fieldset>
 
@@ -227,7 +347,7 @@ export default function CustomerService({
                   disabled={loading}
                   className="inline-flex items-center rounded-lg bg-indigo-600 px-5 py-2 text-sm font-semibold text-white shadow hover:bg-indigo-700 disabled:opacity-60"
                 >
-                  {loading ? "Sending…" : "Submit"}
+                  {loading ? "Sending..." : "Submit"}
                 </button>
               </div>
 

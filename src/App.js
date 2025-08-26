@@ -16,7 +16,8 @@ import PostFutureVirtualCare from "./pages/blog/PostFutureVirtualCare";
 import PostTelehealth39 from "./pages/blog/PostTelehealth39";
 import PostWellnessDoubleDip from "./pages/blog/PostWellnessDoubleDip";
 import PostSection125CaseStudies from "./pages/blog/PostSection125CaseStudies";
-import ComplianceRegulatoryNotes from './ComplianceAndRequlatory';
+import PrivacyHIPAA from "./privacy-policy1";
+import PrivacyPolicy from "./PrivacyPolicy";
 export default function App() {
   return (
     <BrowserRouter>
@@ -40,6 +41,8 @@ export default function App() {
         <Route path="/blog/section-125-small-business-case-studies" element={<PostSection125CaseStudies />} />
         {/* Add others as you build them */}
         {/* <Route path="/individual-family-plan" element={<Individuals />} /> */}
+        <Route path="/" element={<PrivacyHIPAA />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
     </BrowserRouter>
   );

@@ -130,24 +130,24 @@ export default function EmployerHero() {
               <Badge>$0 net cost potential</Badge>
             </motion.div>
 
-            {/* CTAs (React Router links) */}
+            {/* CTAs (Anchor links) */}
             <nav className="mt-6 sm:mt-8 flex flex-col items-start gap-3 sm:flex-row" aria-label="Primary calls to action">
               <motion.div variants={item}>
-                <Link
-                  to="/employers/how-it-works"
+                <a
+                  href="#how-it-works"
                   className="inline-flex items-center justify-center rounded-full bg-indigo-500/95 px-5 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-md transition hover:bg-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-900"
                 >
                   See How It Works
-                </Link>
+                </a>
               </motion.div>
 
               <motion.div variants={item}>
-                <Link
-                  to="/employers/quiz"
+                <a
+                  href="#scorecard-form"
                   className="inline-flex items-center justify-center rounded-full border-2 border-teal-300/90 bg-white/10 px-5 sm:px-6 py-3 text-sm sm:text-base font-semibold text-teal-100 hover:bg-white/20 hover:text-teal-50 transition backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-200/80 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-900"
                 >
                   Take the 5-Minute Qualification Quiz
-                </Link>
+                </a>
               </motion.div>
             </nav>
 
@@ -187,18 +187,18 @@ export default function EmployerHero() {
             </ul>
 
             <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-2 sm:gap-3">
-              <Link
-                to="/employers/how-it-works"
+              <a
+                href="#how-it-works"
                 className="inline-flex items-center justify-center rounded-full bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 Learn More
-              </Link>
-              <Link
-                to="/employers/quiz"
+              </a>
+              <a
+                href="#scorecard-form"
                 className="inline-flex items-center justify-center rounded-full border border-teal-400 bg-white px-4 py-2 text-sm font-semibold text-teal-700 hover:bg-teal-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
               >
                 Start Quiz
-              </Link>
+              </a>
             </div>
           </motion.aside>
         </motion.div>

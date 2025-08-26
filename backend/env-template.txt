@@ -1,0 +1,20 @@
+# Backend Environment Configuration
+# Copy this content to a new file called .env in the backend folder
+
+PORT=3001
+NODE_ENV=development
+
+# Google Service Account Credentials
+# Get these from Google Cloud Console > IAM > Service Accounts > Keys
+GOOGLE_SERVICE_ACCOUNT_EMAIL=your-service-account@your-project.iam.gserviceaccount.com
+GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYour private key here\n-----END PRIVATE KEY-----"
+
+# Your Google Sheet ID (already configured in server.js)
+# SPREADSHEET_ID=1dLsTR_yflv6YGGY7uEnswBHhzQzIn43iFyvpk0_ePwA
+
+# Instructions:
+# 1. Create a new file called .env in the backend folder
+# 2. Copy this content into it
+# 3. Replace the email and private key with your actual credentials
+# 4. Save the file
+# 5. The .env file will be automatically loaded by the server

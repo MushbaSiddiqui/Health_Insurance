@@ -26,7 +26,7 @@ export default function EmployersGainExecutive() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative bg-white">
+    <section id="what-employers-gain" className="relative bg-white">
       {/* subtle background */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-slate-50 to-transparent" />
 
@@ -63,7 +63,6 @@ export default function EmployersGainExecutive() {
                   $600–$900 per employee / year
                 </div>
                 <p className="mt-1 text-sm text-slate-600">
-                  Section 125 FICA savings ≈ $50–$75 / month after fees (some programs report ~$1,120).
                 </p>
               </div>
             </div>

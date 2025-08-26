@@ -79,9 +79,9 @@ const STEPS = [
     tone: "from-amber-500 to-orange-500",
   },
   {
-    title: "Complement Your Major Medical Plan",
+    title: "Fill Everyday Gaps, Simply",
     desc:
-      "Fixed indemnity plans are designed to supplement existing coverage. If you don’t have major medical insurance, you may face an ACA penalty .",
+      "Fixed amounts for common visits, labs, or urgent care. Fast payouts you can apply to any medical bill—or other need.",
     icon: IconShield,
     tone: "from-indigo-500 to-sky-500",
   },

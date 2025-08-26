@@ -152,7 +152,7 @@ export default function HowItWorksFlow() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative bg-white py-16">
+    <section id="how-it-works" className="relative bg-white py-16">
       {/* subtle backdrop accents */}
       <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-sky-200/40 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-indigo-200/40 blur-3xl" />

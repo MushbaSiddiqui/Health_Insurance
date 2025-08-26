@@ -9,21 +9,21 @@ const DEFAULT_STORIES = [
     blurb:
       "Lowered monthly premiums by 50% while still getting money for doctor visits.",
     stat: "50% Lower Premiums",
-    img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop", // dummy
+    img: "/Images/gig.jpg", // dummy
   },
   {
     title: "Family of Four",
     blurb:
       "Used the cash benefits to cover deductibles on their major medical plan and pay for childcare.",
     stat: "Cash for Deductibles",
-    img: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop", // dummy
+    img: "/Images/four.jpg", // dummy
   },
   {
     title: "Self-Employed Designer",
     blurb:
       "Kept her trusted doctor and used rollover visits when she needed extra care one year.",
     stat: "Kept Her Doctor",
-    img: "https://images.unsplash.com/photo-1520975922296-6c58b1f2bc4d?q=80&w=800&auto=format&fit=crop", // dummy
+    img: "/Images/designer.jpg", // dummy
   },
 ];
 

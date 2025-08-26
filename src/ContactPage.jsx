@@ -109,11 +109,11 @@ export function ContactHero({
 
 export function GetInTouch({
   employerPhone = "+1 (800) 123-4567",
-  employerEmail = "benefits@yourcompany.com",
-  employerCalendly = "https://calendly.com/your-calendly/employer-consult",
+  employerEmail = "Support@inspirzhealth.com",
+  employerCalendly = "https://calendly.com/financialshieldjo/30min",
   individualPhone = "+1 (800) 555-0199",
-  individualEmail = "agents@yourcompany.com",
-  individualQuoteUrl = "/quote",
+  individualEmail = "Support@inspirzhealth.com",
+  individualQuoteUrl = "https://calendly.com/financialshieldjo/30min",
 }) {
   const Card = ({ title, children, accentFrom, accentTo }) => (
     <motion.article
