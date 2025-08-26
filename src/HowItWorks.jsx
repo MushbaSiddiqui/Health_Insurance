@@ -2,11 +2,11 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 /* --- Images (place in public/images/) --- */
-const IMG_125   = "/images/salary.jpg";
-const IMG_VIRT  = "/images/2.jpg";
-const IMG_STACK = "/images/Nochange.jpg";
-const IMG_ZERO  = "/images/4.jpg";
-const IMG_COMP  = "/images/5.png";
+const IMG_125   = "/Images/salary.jpg";
+const IMG_VIRT  = "/Images/2.jpg";
+const IMG_STACK = "/Images/Nochange.jpg";
+const IMG_ZERO  = "/Images/4.jpg";
+const IMG_COMP  = "/Images/5.png";
 
 /* --- Content --- */
 const STEPS = [
