@@ -45,13 +45,26 @@ async function initializeSheet() {
       // Add headers if sheet is empty
       await sheet.setHeaderRow([
         'Timestamp',
-        'Name', 
+        'Company Name',
+        'Full Name', 
         'Email', 
         'Phone', 
-        'Category', 
-        'Subject', 
-        'Message', 
-        'Consent',
+        'Business Priority',
+        'Turnover Concern',
+        'Motivation',
+        'Employee Count',
+        'Business Structure',
+        'Offers Health Plan',
+        'Health Plan Challenge',
+        'Payroll Processing',
+        'Supplemental Benefits',
+        'Average Salary',
+        'Decision Timeline',
+        'UTM Source',
+        'UTM Medium',
+        'UTM Campaign',
+        'UTM Term',
+        'UTM Content',
         'Status'
       ]);
       console.log('✅ Headers added to sheet');
@@ -103,6 +116,73 @@ app.post('/api/customer-service', async (req, res) => {
     console.error('❌ Error saving to sheet:', error);
     res.status(500).json({ 
       error: 'Failed to save data to Google Sheet',
+      details: error.message 
+    });
+  }
+});
+
+// Scorecard form submission endpoint
+app.post('/api/scorecard', async (req, res) => {
+  try {
+    const formData = req.body;
+    
+    // Validate required fields for scorecard
+    const requiredFields = ['companyName', 'fullName', 'email', 'phone'];
+    for (const field of requiredFields) {
+      if (!formData[field] || !formData[field].trim()) {
+        return res.status(400).json({ 
+          error: 'Missing required fields',
+          required: requiredFields
+        });
+      }
+    }
+
+    // Load the document
+    await doc.loadInfo();
+    const sheet = doc.sheetsByIndex[0];
+
+    // Add the scorecard data to the sheet
+    const newRow = await sheet.addRow({
+      'Timestamp': new Date().toISOString(),
+      'Company Name': formData.companyName || '',
+      'Full Name': formData.fullName || '',
+      'Email': formData.email || '',
+      'Phone': formData.phone || '',
+      'Business Priority': formData.businessPriority || '',
+      'Turnover Concern': formData.turnoverConcern || '',
+      'Motivation': formData.motivation || '',
+      'Employee Count': formData.employeeCount || '',
+      'Business Structure': formData.businessStructure || '',
+      'Offers Health Plan': formData.offersHealthPlan || '',
+      'Health Plan Challenge': formData.healthPlanChallenge || '',
+      'Payroll Processing': formData.payrollProcessing || '',
+      'Supplemental Benefits': formData.supplementalBenefits || '',
+      'Average Salary': formData.averageSalary || '',
+      'Decision Timeline': formData.decisionTimeline || '',
+      'UTM Source': formData.utm_source || '',
+      'UTM Medium': formData.utm_medium || '',
+      'UTM Campaign': formData.utm_campaign || '',
+      'UTM Term': formData.utm_term || '',
+      'UTM Content': formData.utm_content || '',
+      'Status': 'New Scorecard'
+    });
+
+    console.log('✅ Scorecard data saved to sheet:', { 
+      companyName: formData.companyName, 
+      fullName: formData.fullName, 
+      email: formData.email 
+    });
+
+    res.json({ 
+      success: true, 
+      message: 'Scorecard data successfully saved to Google Sheet',
+      rowId: newRow.rowNumber 
+    });
+
+  } catch (error) {
+    console.error('❌ Error saving scorecard data to sheet:', error);
+    res.status(500).json({ 
+      error: 'Failed to save scorecard data to Google Sheet',
       details: error.message 
     });
   }
