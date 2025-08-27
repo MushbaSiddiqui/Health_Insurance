@@ -1,9 +1,9 @@
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+import { API_CONFIG, getApiUrl } from '../config';
 
 // Submit scorecard form data
 export const submitScorecardForm = async (formData) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/scorecard`, {
+    const response = await fetch(getApiUrl(API_CONFIG.ENDPOINTS.SCORECARD), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ export const submitScorecardForm = async (formData) => {
 // Submit customer service form data
 export const submitCustomerServiceForm = async (formData) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/customer-service`, {
+    const response = await fetch(getApiUrl(API_CONFIG.ENDPOINTS.CUSTOMER_SERVICE), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ export const submitCustomerServiceForm = async (formData) => {
 // Test backend connection
 export const testBackendConnection = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/health`);
+    const response = await fetch(getApiUrl('/health'));
     const result = await response.json();
     return result;
   } catch (error) {
@@ -63,7 +63,7 @@ export const testBackendConnection = async () => {
 // Test Google Sheets connection
 export const testSheetsConnection = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/test-sheets`);
+    const response = await fetch(getApiUrl('/test-sheets'));
     const result = await response.json();
     return result;
   } catch (error) {
