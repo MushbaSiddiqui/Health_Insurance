@@ -1,5 +1,6 @@
 // src/CustomerService.jsx
 import React, { useState } from "react";
+import { getApiUrl, API_CONFIG } from "./config";
 
 export default function CustomerService({
   privacyUrl = "/privacy-policy",
@@ -80,7 +81,7 @@ export default function CustomerService({
       };
 
       // Save data to Google Sheet via backend
-      const response = await fetch('http://localhost:3001/api/customer-service', {
+      const response = await fetch(getApiUrl(API_CONFIG.ENDPOINTS.CUSTOMER_SERVICE), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

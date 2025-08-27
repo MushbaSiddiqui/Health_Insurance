@@ -11,11 +11,13 @@ import Progress from "./components/Progress";
 import NavButtons from "./components/NavButtons";
 import { useScorecardStore } from "./hooks/useScorecardStore";
 import { scorecardSchema } from "./schema";
+import { getApiUrl, API_CONFIG } from "./config";
 
 export default function ScorecardForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [canNext, setCanNext] = useState(false);           // step-scoped validity
+  const [showSuccess, setShowSuccess] = useState(false);
   const formTopRef = useRef(null);
 
   const { data, saveData, loadData } = useScorecardStore();
@@ -125,17 +127,30 @@ export default function ScorecardForm() {
       });
       const payload = { ...formData, ...utm };
 
-      const res = await fetch("http://localhost:3001/api/scorecard", {
+      const res = await fetch(getApiUrl(API_CONFIG.ENDPOINTS.SCORECARD), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
       if (!res.ok) throw new Error("Submission failed");
-      window.location.href = "/assessment/thank-you";
+      
+      // Show success popup
+      setShowSuccess(true);
+      
+      // Clear the form
+      methods.reset();
+      setCurrentStep(1);
+      
+      // Clear stored data
+      saveData({});
+      
+      // Hide success popup after 5 seconds
+      setTimeout(() => setShowSuccess(false), 5000);
+      
     } catch (e) {
       console.error("Submission error:", e);
-      // optionally surface a toast here
+      alert("❌ Sorry, there was an error submitting your form. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -157,6 +172,29 @@ export default function ScorecardForm() {
   // ----- UI -----
   return (
     <div id="scorecard-form" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      {/* Success Popup */}
+      {showSuccess && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl p-8 max-w-md mx-4 text-center shadow-2xl">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Thank You!</h3>
+            <p className="text-gray-600 mb-6">
+              Your assessment has been submitted successfully and saved to our system.
+            </p>
+            <button
+              onClick={() => setShowSuccess(false)}
+              className="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+      
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 lg:py-16">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
@@ -220,6 +258,7 @@ export default function ScorecardForm() {
               currentStep={currentStep}
               canNext={canNext}
               isSubmitting={isSubmitting}
+              isValid={isValid}
               onNext={handleNext}
               onPrevious={handleBack}
             />
