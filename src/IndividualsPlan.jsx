@@ -11,6 +11,7 @@ import FaqIndividuals from "./FaqIndividuals";
 import LegalDisclosures from "./LegalDisclosures";
 import Footer from "./components/Footer";
 import EnrollmentForm from "./Enroll";
+import Benefits from "./IndividualPlanBenefits";
 /* Image lives in public/Images */
 const ILLUSTRATION = "/Images/healthinsurance.png";
 
@@ -168,13 +169,13 @@ export default function IndividualsHero({
               <Pill tone="emerald" delay={0.1}>Simple Enrollment</Pill>
             </div>
             <div className="absolute right-0 top-0">
-              <Pill tone="indigo" delay={0.2}>Keep Your Doctor</Pill>
+              <Pill tone="indigo" delay={0.2}>$0 deductibles</Pill>
             </div>
             <div className="absolute left-2 bottom-2">
-              <Pill tone="violet" delay={0.3}>Fast Claims</Pill>
+              <Pill tone="violet" delay={0.3}>In-Person Doctors</Pill>
             </div>
             <div className="absolute right-0 bottom-3">
-              <Pill tone="emerald" delay={0.4}>Predictable Payouts</Pill>
+              <Pill tone="emerald" delay={0.4}>No copays</Pill>
             </div>
           </div>
         </div>
@@ -182,6 +183,7 @@ export default function IndividualsHero({
     </section>
     <IndemnityPlan/>
     <KeyFeatures/>
+    <Benefits/>
     <HowItWorks/>
     <WhyChooseIndemnity/>
     <RightForYouCompare/>

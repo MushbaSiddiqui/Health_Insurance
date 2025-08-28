@@ -42,7 +42,6 @@ export default function App() {
         <Route path="/blog/wellness-program-double-dip" element={<PostWellnessDoubleDip />} />
         <Route path="/blog/section-125-case-studies" element={<PostSection125CaseStudies />} />
         {/* Test Form for Debugging */}
-        <Route path="/test-form" element={<TestForm />} />
         {/* Add others as you build them */}
         {/* <Route path="/individual-family-plan" element={<Individuals />} /> */}
         <Route path="/" element={<PrivacyHIPAA />} />

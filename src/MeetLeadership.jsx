@@ -2,16 +2,16 @@ import { motion } from "framer-motion";
 
 const LEADERS = [
   {
-    name: "Alex Morgan",
+    name: "Jomar Aponte",
     role: "Founder & CEO",
-    headshot: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=800",
+    headshot: "/Images/jomar.jpeg",
     bio: "20+ years in insurance and employee benefits, building compliant, tax-advantaged plans for SMBs.",
     highlights: ["Benefits Strategy", "Regulatory Alignment", "SMB Growth"]
   },
   {
-    name: "Jordan Patel",
+    name: "Sam Gisyer",
     role: "Chief Financial Officer",
-    headshot: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=800",
+    headshot: "/Images/sam.jpeg",
     bio: "Former VP Finance at a national TPA. Ensures transparent pricing models and financial controls.",
     highlights: ["Risk Controls", "Actuarial Pricing", "Audit-Ready Reporting"]
   },

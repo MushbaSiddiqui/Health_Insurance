@@ -5,9 +5,9 @@ import { useState } from "react";
 const Logo = () => (
   <div className="flex items-center gap-3">
     <img 
-      src="/Images/logo1.png" 
+      src="/Images/logo2.png" 
       alt="Inspirzhealth Logo" 
-      className="w-48 h-48 sm:w-32 sm:h-32 object-contain"
+      className="w-44 h-44 sm:w-28 sm:h-28 object-contain"
     />
     
   </div>

@@ -55,7 +55,7 @@ function Hero() {
               Explore Guides
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
             >
               Talk to a Specialist
