@@ -73,34 +73,31 @@ export default function CustomerService({
     setLoading(true);
 
     try {
-      // Prepare data for Excel
-      const payload = {
-        ...formData,
-        timestamp: new Date().toISOString(),
-        phone: formData.phone || "Not provided"
-      };
+      // Submit data directly to Google Apps Script using form-encoded data
+      const formDataEncoded = new URLSearchParams();
+      formDataEncoded.append('name', formData.name);
+      formDataEncoded.append('email', formData.email);
+      formDataEncoded.append('phone', formData.phone || 'Not provided');
+      formDataEncoded.append('category', formData.category);
+      formDataEncoded.append('subject', formData.subject);
+      formDataEncoded.append('message', formData.message);
+      formDataEncoded.append('consent', formData.consent ? 'Yes' : 'No');
 
-      // Save data to Google Sheet via backend
-      const response = await fetch(getApiUrl(API_CONFIG.ENDPOINTS.CUSTOMER_SERVICE), {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzL3csMLe_bbENlhwaOJ9csqYqNBFDKTUSVeMoIg7bFbS6a06YkWu1MhmEURk3fnpb2/exec', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({
-          name: payload.name,
-          email: payload.email,
-          phone: payload.phone,
-          category: payload.category,
-          subject: payload.subject,
-          message: payload.message,
-          consent: payload.consent
-        })
+        body: formDataEncoded.toString()
       });
 
       if (!response.ok) {
         throw new Error('Failed to submit form');
       }
 
+      const result = await response.text();
+      console.log('Submission result:', result);
+      
       // Show success message
       setLoading(false);
       setStatus({

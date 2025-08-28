@@ -18,6 +18,8 @@ import PostWellnessDoubleDip from "./pages/blog/PostWellnessDoubleDip";
 import PostSection125CaseStudies from "./pages/blog/PostSection125CaseStudies";
 import PrivacyHIPAA from "./privacy-policy1";
 import PrivacyPolicy from "./PrivacyPolicy";
+import TestForm from "./TestForm";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -38,7 +40,9 @@ export default function App() {
         <Route path="/blog/future-of-virtual-care" element={<PostFutureVirtualCare />} />
         <Route path="/blog/telehealth-39-dollar-plans" element={<PostTelehealth39 />} />
         <Route path="/blog/wellness-program-double-dip" element={<PostWellnessDoubleDip />} />
-        <Route path="/blog/section-125-small-business-case-studies" element={<PostSection125CaseStudies />} />
+        <Route path="/blog/section-125-case-studies" element={<PostSection125CaseStudies />} />
+        {/* Test Form for Debugging */}
+        <Route path="/test-form" element={<TestForm />} />
         {/* Add others as you build them */}
         {/* <Route path="/individual-family-plan" element={<Individuals />} /> */}
         <Route path="/" element={<PrivacyHIPAA />} />
