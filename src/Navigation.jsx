@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 const Logo = () => (
-  <div className="flex items-center gap-2">
-    <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-      </svg>
-    </div>
-    <span className="text-xl font-bold text-slate-900">Inspirzhealth</span>
+  <div className="flex items-center gap-3">
+    <img 
+      src="/Images/logo1.png" 
+      alt="Inspirzhealth Logo" 
+      className="w-48 h-48 sm:w-32 sm:h-32 object-contain"
+    />
+    
   </div>
 );
 

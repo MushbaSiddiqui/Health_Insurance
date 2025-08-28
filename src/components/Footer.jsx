@@ -60,12 +60,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
           {/* Company Info & Logo */}
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-              </div>
+            <div className="flex items-center gap-3 mb-4">
+              
               <span className="text-xl font-bold">InspirZhealth</span>
             </div>
             <p className="text-slate-300 mb-6 max-w-md">

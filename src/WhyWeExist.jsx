@@ -206,7 +206,7 @@ export default function WhyWeExist() {
 
                 <motion.a
                   href="/employer-plan"
-                  className="inline-flex items-center justify-center w-full px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white"
+                  className="inline-flex items-center justify-center w-full px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white text-xs sm:text-sm md:text-base"
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
@@ -260,7 +260,7 @@ export default function WhyWeExist() {
 
                 <motion.a
                   href="/individual-family-plan"
-                  className="inline-flex items-center justify-center w-full px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white"
+                  className="inline-flex items-center justify-center w-full px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white text-xs sm:text-sm md:text-base"
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
